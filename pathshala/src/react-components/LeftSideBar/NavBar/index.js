@@ -18,9 +18,19 @@ class NavBar extends React.Component {
 
       // Determine values of each link
       const linkInfo = [
-        { link: '/home/events', name: 'Home', icon: <HomeIcon color="primary"/> },
-        { link: '/home/profile', name: 'Profile', icon: <AccountCircleIcon color="primary"/> }
-      ]
+        {
+          link: "/home/events",
+          name: "Home",
+          icon: <HomeIcon style={{ color: "white" }} />,
+        },
+        {
+          link: "/home/profile",
+          name: "Profile",
+          icon: (
+            <AccountCircleIcon style={{ color: "white" }} />
+          ),
+        },
+      ];
       if (isAdmin) {
         linkInfo[0] = { link: '/home/events', name: 'Events', icon: <EventIcon color="primary"/> }
         linkInfo[1] = { link: '/home/users', name: 'Users', icon: <PeopleIcon color="primary"/> }
@@ -29,28 +39,37 @@ class NavBar extends React.Component {
       return (
         <div className="nav-bar">
           <List>
-            <Link className="unstyled-link" to={ linkInfo[0].link } onClick={ () => setOnEventsPage(true) }>
-              <ListItem 
-                button={ true }
-                divider={ true }
-                selected={ onEventsPage }
+            <Link
+              className="unstyled-link"
+              to={linkInfo[0].link}
+              onClick={() => setOnEventsPage(true)}
+            >
+              <ListItem
+                button={true}
+                divider={true}
+                selected={onEventsPage}
                 key={"Events"}
+                style={{ color: "black", backgroundColor: "#bfcae2" }}
               >
-                <ListItemIcon>{ linkInfo[0].icon }</ListItemIcon>
-                <ListItemText primary={ linkInfo[0].name } />
+                <ListItemIcon>{linkInfo[0].icon}</ListItemIcon>
+                <ListItemText primary={linkInfo[0].name} />
               </ListItem>
             </Link>
-            <Link className="unstyled-link" to={ linkInfo[1].link } onClick={ () => setOnEventsPage(false) }>
-              <ListItem 
-                button={ true } 
-                selected={ !onEventsPage }
+            <Link
+              className="unstyled-link"
+              to={linkInfo[1].link}
+              onClick={() => setOnEventsPage(false)}
+            >
+              <ListItem
+                button={true}
+                selected={!onEventsPage}
                 key={"Users"}
+                style={{ color: "black",backgroundColor: "#bfcae2" }}
               >
-                <ListItemIcon>{ linkInfo[1].icon }</ListItemIcon>
-                <ListItemText primary={ linkInfo[1].name } />
+                <ListItemIcon>{linkInfo[1].icon}</ListItemIcon>
+                <ListItemText primary={linkInfo[1].name} />
               </ListItem>
             </Link>
-            
           </List>
         </div>
       );

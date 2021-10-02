@@ -90,31 +90,31 @@ class ChangePassword extends React.Component {
   render() {
     const { username } = this.props
 
-    return ( 
+    return (
       <div>
-        { this.state.changingPassword ? (
+        {this.state.changingPassword ? (
           <div>
             <div id="title">Change Password</div>
-            <PasswordEntry 
+            <PasswordEntry
               label="Current Password"
-              value={ this.state.currentPassword }
-              showPsw={ this.state.currShowPsw }
-              toggleShowPsw={ this.toggleShowCurrPsw }
-              onChange={ this.onCurrPswChange }
+              value={this.state.currentPassword}
+              showPsw={this.state.currShowPsw}
+              toggleShowPsw={this.toggleShowCurrPsw}
+              onChange={this.onCurrPswChange}
             />
-            <PasswordEntry 
+            <PasswordEntry
               label="New Password (min. 4 chars)"
-              value={ this.state.newPassword }
-              showPsw={ this.state.newShowPsw }
-              toggleShowPsw={ this.toggleShowNewPsw }
-              onChange={ this.onNewPswChange }
+              value={this.state.newPassword}
+              showPsw={this.state.newShowPsw}
+              toggleShowPsw={this.toggleShowNewPsw}
+              onChange={this.onNewPswChange}
             />
-            <PasswordEntry 
+            <PasswordEntry
               label="Re-enter Password"
-              value={ this.state.newPasswordConfirm }
-              showPsw={ this.state.confShowPsw }
-              toggleShowPsw={ this.toggleShowConfPsw }
-              onChange={ this.onConfirmPswChange }
+              value={this.state.newPasswordConfirm}
+              showPsw={this.state.confShowPsw}
+              toggleShowPsw={this.toggleShowConfPsw}
+              onChange={this.onConfirmPswChange}
             />
             <div id="buttons-div">
               <Button
@@ -126,51 +126,48 @@ class ChangePassword extends React.Component {
               </Button>
               <Button
                 variant="contained"
-                color="primary"
+                style={{ backgroundColor: "#3498DB", color: "white" }}
                 disableElevation
-                onClick={ () => { 
+                onClick={() => {
                   if (this.checkValid()) {
-                    changePassword(username,this.state.newPassword)
-                    this.clearEntries(); 
+                    changePassword(username, this.state.newPassword);
+                    this.clearEntries();
                   }
                 }}
-                startIcon={ <SaveIcon /> }
+                startIcon={<SaveIcon />}
               >
                 Save
               </Button>
             </div>
-            <p id="invalid-text">{this.state.isValidInputs ? '' : 'Invalid Credentials'}</p>
+            <p id="invalid-text">
+              {this.state.isValidInputs ? "" : "Invalid Credentials"}
+            </p>
           </div>
         ) : (
           <Button
             disableElevation
-            variant="contained"
-            color="primary"
-            fullWidth={ true }
-            onClick={ this.openPasswordChange }
-            startIcon={ <LockIcon /> }
+            fullWidth={true}
+            onClick={this.openPasswordChange}
+            startIcon={<LockIcon />}
+            style={{ backgroundColor: "#3498DB", color: "white" }}
           >
             Change Password
           </Button>
         )}
 
         {/* Dialog to say password saved successfully */}
-        <Dialog
-          open={ this.state.showDialog }
-        >
+        <Dialog open={this.state.showDialog}>
           <DialogContent>
-            <DialogContentText>
-              Password Saved Successfully.
-            </DialogContentText>
+            <DialogContentText>Password Saved Successfully.</DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={ this.closeDialog } color="primary" autoFocus>
+            <Button onClick={this.closeDialog} color="primary" autoFocus>
               Ok
             </Button>
           </DialogActions>
         </Dialog>
       </div>
-    )
+    );
   }
 }
 

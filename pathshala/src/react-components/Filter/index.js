@@ -25,6 +25,7 @@ class Filter extends React.Component {
             disableElevation
             onClick={ () => clearSelections(onEventsPage) }
             startIcon={<DeleteIcon />}
+            style={{backgroundColor:"blue",color:"white"}}
           >
             Clear Filters
           </Button>

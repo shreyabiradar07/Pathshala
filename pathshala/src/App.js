@@ -5,6 +5,7 @@ import './App.css';
 
 import Login from './react-components/Login';
 import Home from './react-components/Home';
+import loginImg from './images/login.png'
 
 import { readCookie } from "./actions/users";
 
@@ -28,9 +29,11 @@ class App extends React.Component {
 
     routing() {
         if (!this.state.currentUser) {
-            return(<div>
-                        <Login app={this}/>
-            </div>)
+            return (
+              <div>
+                <Login app={this} />
+              </div>
+            );
         } else {
             return(<Home 
                         app={this}
@@ -42,7 +45,8 @@ class App extends React.Component {
     
     render() {
         return (
-            <div>
+            <div >
+           
                 <BrowserRouter>
                     {this.routing()}
                 </BrowserRouter>

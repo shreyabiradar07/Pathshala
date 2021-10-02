@@ -35,48 +35,52 @@ class LoginBox extends React.Component {
         const {switchToSignUp, app } = this.props
 
         return (
-            <Container id="loginBox" maxWidth={"xs"}>
-                    <img src={logo} id="prepme-logo" alt="PrepMe logo"/>
-                    <div id="app-name-text">PrepMe</div>
-                    <TextField
-                        name="username"
-                        label="Username"
-                        variant="outlined"
-                        value={this.state.username}
-                        onChange={this.handleInputChange}
-                        fullWidth
-                        autoFocus
-                        margin="normal"
-                    />
-                    <PasswordEntry 
-                        label="Password"
-                        value={ this.state.password }
-                        showPsw={ this.state.showPsw }
-                        toggleShowPsw={ this.toggleShowPsw }
-                        onChange={ this.onPswChange }
-                    />
-                    <Button
-                        disableElevation
-                        type='submit'
-                        variant="contained"
-                        color="primary"
-                        fullWidth
-                        onClick={() => login(this, app)}
-                    >
-                        Login
-                    </Button>
-                    <div id="sign-up-button">
-                        <Button
-                            variant="outlined"
-                            color="primary"
-                            fullWidth
-                            onClick={ switchToSignUp }
-                        >
-                            Sign Up
-                        </Button>
-                    </div>
-                    <h3 id="invalidText">{this.state.invalidCredentials ? 'Invalid Credentials' : ''}</h3>
-            </Container>
+          <Container id="loginBox" maxWidth={"xs"}>
+            {/* <img src={logo} id="prepme-logo" alt="PrepMe logo"/>*/}
+            <div id="app-name-text">PathShala</div>
+            <TextField
+              name="username"
+              label="Username"
+              variant="outlined"
+              value={this.state.username}
+              onChange={this.handleInputChange}
+              fullWidth
+              autoFocus
+              margin="normal"
+            />
+            <PasswordEntry
+              label="Password"
+              value={this.state.password}
+              showPsw={this.state.showPsw}
+              toggleShowPsw={this.toggleShowPsw}
+              onChange={this.onPswChange}
+            />
+            <Button
+              disableElevation
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              onClick={() => login(this, app)}
+              style={{ backgroundColor: "blue", color: "white" }}
+            >
+              Login
+            </Button>
+            <div id="sign-up-button">
+              <Button
+                variant="outlined"
+                color="primary"
+                fullWidth
+                onClick={switchToSignUp}
+                style={{ backgroundColor: "blue", color: "white" }}
+              >
+                Sign Up
+              </Button>
+            </div>
+            <h3 id="invalidText">
+              {this.state.invalidCredentials ? "Invalid Credentials" : ""}
+            </h3>
+          </Container>
         );
     }
 }

@@ -21,8 +21,9 @@ class LeftSideBar extends React.Component {
 
         <div>
           <div id="app-info">
-            <div id="app-logo">
-              <img src={ icon } />
+            <div className="logo">
+              {/*<img src={ icon } />*/}
+              <h3>PathShala</h3>
             </div>
             <div>
               <div id="username">@{ username }</div>
@@ -41,7 +42,7 @@ class LeftSideBar extends React.Component {
             <Button
               disableElevation
               variant="contained"
-              color="primary"
+              style={{backgroundColor:"blue",color:"white"}}
               endIcon={<ExitToAppIcon />}
             >
               Logout

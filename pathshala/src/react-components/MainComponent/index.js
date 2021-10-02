@@ -101,7 +101,7 @@ class MainComponent extends React.Component {
             Home
           </div>
           <div id='create-event'>
-            <Button onClick={ () => { this.createEvent()}} variant="outlined" color="primary" size="medium">
+            <Button onClick={ () => { this.createEvent()}} variant="outlined" color="primary" size="medium" style={{backgroundColor:"blue",color:"white"}}>
               Create Event
             </Button>
           </div>
