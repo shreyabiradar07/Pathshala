@@ -448,7 +448,7 @@ app.get("*", (req, res) => {
     res.sendFile(__dirname + '/pathshala/public/index.html');
 });
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
     log(`Listening on port ${port}...`)
 });

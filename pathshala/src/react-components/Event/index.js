@@ -1,4 +1,8 @@
 import React from "react";
+import {
+   Link
+  } from "react-router-dom";
+  
 
 import "./styles.css";
 import {Input, ListItemText, TextField, Button, Dialog, DialogContent, DialogTitle, DialogContentText, DialogActions} from '@material-ui/core';
@@ -352,6 +356,7 @@ class Event extends React.Component {
                 <Button disableElevation variant="contained" color="secondary" onClick={ this.openDialog }>
                             View Members
                 </Button>
+               
                 <Dialog open={ this.state.showDialog }>
                     <DialogTitle>Joined Members</DialogTitle>
                     <DialogContent>
@@ -386,6 +391,11 @@ class Event extends React.Component {
                         <Button onClick={ this.closeDialog } color="primary" autoFocus>
                         Ok
                         </Button>
+                        <Button disableElevation variant="contained" color="primary" >
+                        <Link to={{ pathname: `http://localhost:8000/chat.html?username=${this.props.userName}&room=1` }} target="_blank" >Join Chat with fellow members</Link>
+                         </Button>
+                         
+                       
                     </DialogActions>
                 </Dialog>
                 

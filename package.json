@@ -18,7 +18,6 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "server": "nodemon index.js --ignore client",
     "start": "nodemon server.js"
   },
@@ -32,6 +31,4 @@
     "url": "https://github.com/csc309-winter-2020/team38/issues"
   },
   "homepage": "https://github.com/csc309-winter-2020/team38#readme"
-  
-
 }
