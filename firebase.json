@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "pathshala/build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

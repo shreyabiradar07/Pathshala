@@ -69,7 +69,17 @@ Start the client server
   
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(6).png)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(7).png)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(8).png)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(9).png)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(10).png)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(11).png)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(12).png)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(13).png)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(14).png)
+![App Screenshot](https://github.com/shreyabiradar07/Pathshala/blob/master/ScreenShots/Screenshot%20(15).png)
+
 
   
 ## Contributors
