@@ -8,7 +8,6 @@ import { getUsersNameAndRating } from "../../actions/users";
 import eventHelpers from "../../actions/events";
 const { filterEvents, filterUsers, getEvents } = eventHelpers;
 
-
 /* Component for the Home page */
 class Home extends React.Component {
   constructor(props) {
@@ -18,7 +17,9 @@ class Home extends React.Component {
   
   state = {
     onEventsPage: true,
-    eventAction: false, // whether or not we're doing an action on an event; so creating, editing, viewing
+    eventAction: false, 
+   
+    // whether or not we're doing an action on an event; so creating, editing, viewing
     /*
     appliedFilters is list of objects with a name and list of values
       - names are taken from eventEntries and userEntries in RightSideBar Component
@@ -90,42 +91,47 @@ class Home extends React.Component {
   setOnEventsPage = (newValue) => {
     this.setState({ onEventsPage: newValue })
   }
+  
 
   render() {
     const { app, state } = this.props
     const { currentUser, isAdmin } = state
+    
 
     return (
       <div className="home-div">
-        <LeftSideBar 
-          app={ app }
-          username={ currentUser }
-          isAdmin={ isAdmin }
-          onEventsPage={ this.state.onEventsPage }
-          setOnEventsPage={ this.setOnEventsPage }
+       
+        <LeftSideBar
+          app={app}
+          username={currentUser}
+          isAdmin={isAdmin}
+          onEventsPage={this.state.onEventsPage}
+          setOnEventsPage={this.setOnEventsPage}
         />
-      
+
         <MainComponent
-          user={this.state.users.filter(user => user.username === currentUser)[0]}
+          user={
+            this.state.users.filter((user) => user.username === currentUser)[0]
+          }
           rating
           filteredEvents={this.state.filteredEvents}
           events={this.state.events}
           refreshEvents={this.refreshEvents}
           refreshUsers={this.refreshUsers}
-          setEvents = {this.props.setEvents}
-          users={ this.state.filteredUsers }
-          isAdmin={ isAdmin }
-          onEventsPage={ this.state.onEventsPage }
+          setEvents={this.props.setEvents}
+          users={this.state.filteredUsers}
+          isAdmin={isAdmin}
+          onEventsPage={this.state.onEventsPage}
           setEventAction={this.setEventAction}
         />
 
-        <RightSideBar 
-          username={ currentUser }
-          isAdmin={ isAdmin } 
-          onEventsPage={ this.state.onEventsPage }
-          eventAction={ this.state.eventAction }
-          addFilter={ this.addFilter }
-          resetFilters={ this.resetFilters }
+        <RightSideBar
+          username={currentUser}
+          isAdmin={isAdmin}
+          onEventsPage={this.state.onEventsPage}
+          eventAction={this.state.eventAction}
+          addFilter={this.addFilter}
+          resetFilters={this.resetFilters}
         />
       </div>
     );

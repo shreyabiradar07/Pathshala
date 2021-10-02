@@ -4,6 +4,8 @@ import "./styles.css";
 
 import Filter from '../Filter/index';
 import ChangePassword from '../ChangePassword/index';
+import Resource from "../Resources/Resource";
+import Resource1 from "../Resources/Resource1";
 
 /* Component for the right SideBar page */
 class RightSideBar extends React.Component {
@@ -113,7 +115,16 @@ class RightSideBar extends React.Component {
             clearSelections={ this.clearSelections }
         />
       } else {
-        mainElement =  <ChangePassword username={ username }/>
+        mainElement = (
+          <div>
+            <ChangePassword username={username} />
+            <div className="resources">
+              <h2>Resources</h2>
+              <Resource1 />
+              <Resource />
+            </div>
+          </div>
+        );
       }
     }
 

@@ -121,6 +121,7 @@ class ChangePassword extends React.Component {
                 variant="outlined"
                 color="primary"
                 onClick={this.cancelPasswordChange}
+                style={{color:"red"}}
               >
                 Cancel
               </Button>
@@ -149,7 +150,7 @@ class ChangePassword extends React.Component {
             fullWidth={true}
             onClick={this.openPasswordChange}
             startIcon={<LockIcon />}
-            style={{ backgroundColor: "#3498DB", color: "white" }}
+            style={{ backgroundColor: "blue", color: "white" }}
           >
             Change Password
           </Button>

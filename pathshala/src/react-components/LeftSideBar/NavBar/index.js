@@ -21,13 +21,13 @@ class NavBar extends React.Component {
         {
           link: "/home/events",
           name: "Home",
-          icon: <HomeIcon style={{ color: "white" }} />,
+          icon: <HomeIcon style={{ color: "black" }} />,
         },
         {
           link: "/home/profile",
           name: "Profile",
           icon: (
-            <AccountCircleIcon style={{ color: "white" }} />
+            <AccountCircleIcon style={{ color: "black" }} />
           ),
         },
       ];
