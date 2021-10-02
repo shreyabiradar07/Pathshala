@@ -29,9 +29,20 @@ export default function Resource() {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Resource 2</h2>
-            <LinkPreview url="https://youtu.be/Nzxh9YjRAFw" width="400px" />
-
-            <button className="close-modal" onClick={toggleModal}>
+            <LinkPreview
+              url="https://youtu.be/0WCel-zgkns"
+              width="400px"
+            /><div style={{display:"flex",flexDirection:"row",justifyContent:"space-between"}}>
+<div> <a style= {{ width:"135px" ,backgroundColor: "#1065b7", textAlign: "center", fontWeight: "800", padding: "9px 0px", color: "white", fontSize: "10px", display: "inline-block", textDecoration: "none"}} href='https://pmny.in/Tr069EmYrX9o' > Pay Now </a> </div>
+            <span>OR </span> <span>
+            <div> <a style= {{ width:"135px" ,backgroundColor: "#1065b7", textAlign: "center", fontWeight: "800", padding: "9px 0px", color: "white", fontSize: "10px", display: "inline-block", textDecoration: "none"}} href='#' > Redeem Points </a> </div>
+            </span>
+</div>
+            <button
+              className="close-modal"
+              onClick={toggleModal}
+              
+            >
               CLOSE
             </button>
           </div>

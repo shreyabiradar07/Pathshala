@@ -1,3 +1,4 @@
+import { send } from '../utils/Push'
 function getEvents(home, main) {
     const url = '/events'
 
@@ -61,6 +62,7 @@ function addEvent(eventForm, events, username, setEvents, viewEvents) {
             // Handle response we get from the API.
             if (res.status === 200) {
                 // If event was added successfully, go back to events page
+                
                 viewEvents();
             } else {
                 // TODO: handle what happens if event wasn't added successfully.
