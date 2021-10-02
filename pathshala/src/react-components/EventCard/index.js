@@ -67,97 +67,128 @@ class EventCard extends React.Component {
     const icons = [avatar1, avatar3, avatar5, avatar2, avatar4, avatar6]
     return (
       <div className="event-card">
-        <div className="header" >
+        <div className="header">
           <div className="event-info">
             <div className="icon">
-              <img id="icon-img" src={ icons[event.icon]}/>
+              <img id="icon-img" src={icons[event.icon]} />
             </div>
             <div>
-            <div className="course" >
-              {event.course}
-            </div>
-            <div className="event-subject">
-              {event.subject}
-            </div>
+              <div className="course">{event.course}</div>
+              <div className="event-subject">{event.subject}</div>
             </div>
           </div>
-          <div className="username" >
-             {'@' + event.username}
-          </div>
+          <div className="username" >{"@" + event.username}</div>
         </div>
-        <div className='event_description'>
-            {event.description}
-        </div>
+        <div className="event_description">{event.description}</div>
         <div className="actions">
           <div>
-              {isAdmin || event.members.includes(username) ? (
-                <div className="action-button" id='rate-button'>
-                  <Button className="cardbutton" onClick={this.openDialog}  variant="outlined" color="primary" size="small">
-                    Rate Organizer
-                  </Button>
-                </div>
-              ) : ( <div /> )}
+            {isAdmin || event.members.includes(username) ? (
+              <div className="action-button" id="rate-button">
+                <Button
+                  className="cardbutton"
+                  onClick={this.openDialog}
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                >
+                  Rate Organizer
+                </Button>
+              </div>
+            ) : (
+              <div />
+            )}
           </div>
           <div className="right_actions">
-              { isAdmin || username === event.username ? (
-                  <div className="action-button" id='edit-button'>
-                    <Button className="cardbutton" onClick={() => onEditing(event)}  variant="outlined" color="primary" size="small">
-                      Edit
-                    </Button>
-                  </div>
-                ) : ( <div /> )}
-                <div className="action-button" id='view-button'>
-                  <Button className="cardbutton" onClick={() => onViewing(event)}  variant="outlined" color="primary" size="small">
-                    View
-                  </Button>
-                </div>
-                { !isAdmin && username !== event.username ? (<div className="action-button" id='join-button'>
-                  <Button className="cardbutton" onClick={ () => { this.addMember(event)}} variant="outlined" color="primary" size="small">
-                    {join_value}
-                  </Button>
-                </div>
-                ) : (<div/>)} 
+            {isAdmin || username === event.username ? (
+              <div className="action-button" id="edit-button">
+                <Button
+                  className="cardbutton"
+                  onClick={() => onEditing(event)}
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  style={{ backgroundColor: "#9784FF", color: "black" }}
+                >
+                  Edit
+                </Button>
+              </div>
+            ) : (
+              <div />
+            )}
+            <div className="action-button" id="view-button">
+              <Button
+                className="cardbutton"
+                onClick={() => onViewing(event)}
+                variant="outlined"
+                color="primary"
+                size="small"
+                style={{ backgroundColor: "#9784FF", color: "black" }}
+              >
+                View
+              </Button>
             </div>
+            {!isAdmin && username !== event.username ? (
+              <div className="action-button" id="join-button">
+                <Button
+                  className="cardbutton"
+                  onClick={() => {
+                    this.addMember(event);
+                  }}
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                  style={{ backgroundColor: "#9784FF", color: "black" }}
+                >
+                  {join_value}
+                </Button>
+              </div>
+            ) : (
+              <div />
+            )}
+          </div>
         </div>
 
         {/* Dialog to allow user to give organizer rating */}
-        <Dialog open={ this.state.showDialog }>
+        <Dialog open={this.state.showDialog}>
           <DialogTitle id="form-dialog-title">Rate Organizer</DialogTitle>
           <DialogContent>
             <DialogContentText>
               Enter the rating for organizer @{event.username}.
             </DialogContentText>
             <div id="rating-div">
-              <Rating 
+              <Rating
                 name="pristine"
                 value={this.state.ratingValue}
-                onChange={(event, newValue) => this.handleRatingChange(newValue)}
+                onChange={(event, newValue) =>
+                  this.handleRatingChange(newValue)
+                }
               />
-            </div> 
+            </div>
           </DialogContent>
           <DialogActions>
             <Button onClick={this.closeDialog} color="primary">
               Cancel
             </Button>
-            <Button 
+            <Button
               onClick={() => {
-                updateRating(this, event.username, this.state.ratingValue)
+                updateRating(this, event.username, this.state.ratingValue);
               }}
-                color="primary">
+              color="primary"
+            >
               Save
             </Button>
           </DialogActions>
-       </Dialog>
+        </Dialog>
 
-      {/* Dialog to tell user their rating has been saved */}
-       <Dialog open={ this.state.showSavedDialog }>
+        {/* Dialog to tell user their rating has been saved */}
+        <Dialog open={this.state.showSavedDialog}>
           <DialogContent>
             <DialogContentText>
               Your rating has been recorded.
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={ this.closeSavedDialog } color="primary" autoFocus>
+            <Button onClick={this.closeSavedDialog} color="primary" autoFocus>
               Ok
             </Button>
           </DialogActions>

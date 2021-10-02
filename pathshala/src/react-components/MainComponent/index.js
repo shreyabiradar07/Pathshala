@@ -97,43 +97,71 @@ class MainComponent extends React.Component {
     else {
     return (
       <div className="main-component-div">
-        <div className="section-header" >
-          <div className="page-name">
-            Home
-          </div>
-          <div id='create-event'>
-            <Button onClick={ () => { this.createEvent()}} variant="outlined" color="primary" size="medium" style={{backgroundColor:"blue",color:"white"}}>
-              Create Event
+        <div className="section-header">
+          <div className="page-name">Home</div>
+          <div id="create-event">
+            <Button
+              onClick={() => {
+                this.createEvent();
+              }}
+              variant="outlined"
+              color="primary"
+              size="medium"
+              style={{ backgroundColor: "blue", color: "white" }}
+            >
+              Create Group
             </Button>
           </div>
         </div>
-        <div style={{display :'flex', flexDirection: 'row'}}>
-        <div className="upcoming-events">
-        <button type="button" onClick={() => { this.setState({recommended:false})}}>All Groups </button>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <div className="upcoming-events">
+            <Button
+              type="button"
+              variant="outine"
+              onClick={() => {
+                this.setState({ recommended: false });
+              }}
+              style={{ backgroundColor: "blue", color: "white" }}
+            >
+              All Groups
+            </Button>
+          </div>
+          <div className="upcoming-events">
+            <Button
+              type="button"
+              varinat="outlined"
+              onClick={() => {
+                this.setState({ recommended: true });
+              }}
+              style={{ backgroundColor: "blue", color: "white" }}
+            >
+              Recommended Groups
+            </Button>
+          </div>
         </div>
-        <div className="upcoming-events">
-        <button type="button" onClick={() => { this.setState({recommended:true})}}>Recommended </button>
-        </div>
-        </div>
-        {this.state.recommended ===  false ?  <div className="event-list">
-          {filteredEvents.length === 0 ? (
-            <div className="empty-list-text">No events match the filter(s).</div>
-          ) : (
-            filteredEvents.map(event => (
-              <EventCard 
-              username={user.username}
-              isAdmin={isAdmin} 
-              onEditing={this.onEditing}
-              onViewing={this.onViewing}
-              event={event}
-              refreshEvents={refreshEvents.bind(this, this)}/>
-            ))
-          )}
-        </div>:
-        <Recommended/>
-        }
+        {this.state.recommended === false ? (
+          <div className="event-list">
+            {filteredEvents.length === 0 ? (
+              <div className="empty-list-text">
+                No events match the filter(s).
+              </div>
+            ) : (
+              filteredEvents.map((event) => (
+                <EventCard
+                  username={user.username}
+                  isAdmin={isAdmin}
+                  onEditing={this.onEditing}
+                  onViewing={this.onViewing}
+                  event={event}
+                  refreshEvents={refreshEvents.bind(this, this)}
+                />
+              ))
+            )}
+          </div>
+        ) : (
+          <Recommended />
+        )}
       </div>
-
     );}
   }
 }

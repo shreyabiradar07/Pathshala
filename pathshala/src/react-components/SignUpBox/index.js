@@ -1,6 +1,6 @@
 import React from 'react';
 import './SignUpBox.css';
-import logo from "./static/prepme.png"
+import logo from "./static/logo.png"
 import {Button, TextField, Container} from "@material-ui/core";
 
 import PasswordEntry from '../ChangePassword/PasswordEntry/index';
@@ -51,8 +51,8 @@ class SignUpBox extends React.Component {
     render() {
         return (
           <Container id="signUpBox" maxWidth={"xs"}>
-            {/* <img src={logo} id="prepme-logo" alt="PrepMe logo"/>*/}
-            <div id="app-name-text">PathShala</div>
+             <img src={logo} id="prepme-logo" alt="PrepMe logo"/>
+            
             <TextField
               name="username"
               label="Username"

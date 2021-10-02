@@ -16,8 +16,9 @@
 
 .upcoming-events {
   font-family: Raleway-Bold;
-  margin-top: 24px;
+  margin: 24px 5px 5px 5px;
   font-size: 18px;
+  
 }
 .page-name {
   font-family: Raleway-SemiBold;

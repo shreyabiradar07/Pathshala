@@ -24,8 +24,8 @@
 
 .username {
   font-family: Raleway-SemiBold;
-  color: #9784FF;
-  /* color: #5271FF; */
+
+  color: "blue";
 
   text-align: center;
 }
