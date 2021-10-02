@@ -1,0 +1,9 @@
+.sidebar-div {
+  width: 300px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 1px solid #A5A5A5;
+  height: calc(100% - 48px);
+}

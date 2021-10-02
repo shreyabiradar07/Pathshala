@@ -1,0 +1,32 @@
+{
+  "name": "team38",
+  "version": "1.0.0",
+  "description": "`cd prepme`\\\r `npm install`\\\r `npm start`",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.22.0",
+    "connect-multiparty": "^2.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.25",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csc309-winter-2020/team38.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csc309-winter-2020/team38/issues"
+  },
+  "homepage": "https://github.com/csc309-winter-2020/team38#readme"
+}

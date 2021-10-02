@@ -1,0 +1,21 @@
+.user-card {
+  width: 80%;
+  border-radius: 30px;
+  background-color: #D7E4FF;
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-username {
+  font-family: Raleway-SemiBold;
+  color: #9784FF;
+  text-align: left;
+}
+
+.star-rating {
+  width: 120px;
+}

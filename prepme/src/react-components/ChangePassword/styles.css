@@ -1,0 +1,17 @@
+#title {
+  font-family: Raleway-SemiBold;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+#buttons-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+#invalid-text {
+  font-size: 14px;
+  color: crimson;
+}

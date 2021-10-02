@@ -1,0 +1,8 @@
+.user-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  overflow-y: scroll;
+  height: 88%;
+  align-items: center;
+}

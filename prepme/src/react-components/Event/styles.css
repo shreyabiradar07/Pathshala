@@ -1,0 +1,90 @@
+.event-div {
+    flex: 1;
+    margin: 24px;
+  }
+
+  .page-name {
+    font-family: Raleway-SemiBold;
+    font-size: 28px;
+    padding-top: 7px;
+  }
+
+  .header_page {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 1px solid #A5A5A5;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+  
+  }
+
+  .left_header {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+  }
+
+  .right_header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .section {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+      margin-bottom: 18px;
+  }
+
+  .form-components {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .section-name {
+      margin-right: 10px;
+      font-size: 20px;
+  }
+
+  .location {
+      width: 70%;
+  }
+
+  .description {
+      width: 100%;
+      height: 100%;
+  }
+
+  .last_button {
+    margin-right: 8px;
+  }
+
+  #avatar-list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .avatar-div {
+    margin-left: 15px;
+    margin-top: 3px;
+  }
+
+  #member-name {
+    color: #FF8C19;
+  }
+
+  .remove {
+    margin-left: 80px;
+  }
+
+  #upload-button {
+      margin-left: 10px;
+  }
+
+  .file-button {
+      margin-right: 10px;
+  }

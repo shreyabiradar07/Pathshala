@@ -1,0 +1,39 @@
+#user-profile {
+    display: flex;
+    flex-direction: column;
+}
+
+#user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.empty-list-text {
+    font-size: 18px;
+    margin-top: 24px;
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+    overflow-y: scroll;
+    height: 85%;
+    align-items: center;
+}
+
+.event-list::-webkit-scrollbar {
+    display: none;
+}
+
+.event  {
+    margin-bottom: 24px;
+}
+
+h1 {
+    font-family: Raleway-SemiBold;
+    color: #FF8C19;
+}

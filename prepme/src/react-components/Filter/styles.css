@@ -1,0 +1,20 @@
+.filter-div {
+  display: flex;
+  flex-direction: column;
+}
+
+#filter-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+#filter-title {
+  font-family: Raleway-SemiBold;
+  font-size: 24px;
+}
+
+.filter-entries{
+  margin-top: 32px;
+}
