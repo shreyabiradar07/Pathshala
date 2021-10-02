@@ -58,10 +58,10 @@ const PopUp = (props) => {
           <div style={{ display: "flex" }}>
             <Typography className={classes.title}>Resource 1 </Typography>
             <LinkPreview
-              url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              url="https://youtu.be/0WCel-zgkns"
               width="400px"
             />
-            
+      
             <IconButton
               onClick={() => {
                 setOpenPopup(false);

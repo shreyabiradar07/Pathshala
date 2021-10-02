@@ -1,5 +1,5 @@
 // Functions to help with user actions.
-
+import { send } from '../utils/Push'
 // A function to check if a user is logged in on the session cookie
 export const readCookie = (app) => {
   const url = "/users/check-session";
@@ -105,6 +105,7 @@ export const login = (loginComp, app) => {
   fetch(request)
       .then(res => {
           if (res.status === 200) {
+            send("Push Notifications", "Push notification successfully sent to the browser! Check it out!")
             loginComp.setState({ invalidCredentials: false })
             return res.json();
           }
@@ -125,11 +126,12 @@ export const login = (loginComp, app) => {
 
 // A function to send a POST request with the user to be created
 export const signUp = (signUpComp) => {
-  const { username, password } = signUpComp.state
+  const { username, password,weaknesses } = signUpComp.state
 
   const newUser = {
     username,
-    password
+    password,
+    weaknesses
   }
   // Create our request constructor with all the parameters we need
   const request = new Request("/users", {

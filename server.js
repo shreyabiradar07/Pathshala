@@ -4,6 +4,7 @@ log('Express server');
 
 const express = require('express');
 const app = express();
+const webpush = require("web-push");
 const ContentBasedRecommender = require('content-based-recommender')
 const recommender = new ContentBasedRecommender({
     minScore: 0.1,
@@ -141,7 +142,7 @@ app.get('/users', (req, res) => {
 app.get('/recommendedGroups', (req, res)=>{
     var docs=[];
     console.log(req.headers);
-    var strengths = JSON.parse(req.headers.weaknesses);
+    var strengths = Array.from(req.headers.weaknesses.split(","))
     
     Event.find().then((events) => {
         const filtered=[];
@@ -438,6 +439,20 @@ app.delete("/event_files/:file_id", (req, res) => {
             });
     });
 });
+
+// Push notifications
+const publicVapidKey ="BKbKEJ1rJqvumgXg0n0WEDebYoNvNODZV3iqFpVgsJEbufOIZ8Yd76TBxWr_afLY3lajRFK3Z0QfVN7wA8R0H64";
+const privateVapidKey = "f40t4rkDm5uwpdP40f_HF1Ke3_5ddg_i61f23P8WqaE";
+webpush.setVapidDetails("mailto:utkarshagarwal101@gmail.com",
+publicVapidKey,privateVapidKey);
+app.post("/subscribe", (req, res) => {
+const { subscription, title, message } = req.body;
+const payload = JSON.stringify({ title, message });
+webpush.sendNotification(subscription, payload)
+.catch((err) => console.error("err", err));
+res.status(200).json({ success: true });
+});
+
 
 /*** Webpage routes below **********************************/
 // Serve the build

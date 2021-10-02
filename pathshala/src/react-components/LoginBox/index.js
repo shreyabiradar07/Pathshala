@@ -76,6 +76,7 @@ class LoginBox extends React.Component {
               >
                 Sign Up
               </Button>
+        
             </div>
             <h3 id="invalidText">
               {this.state.invalidCredentials ? "Invalid Credentials" : ""}

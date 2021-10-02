@@ -3,6 +3,7 @@ import React from "react";
 import "./styles.css";
 import "../../App.css";
 import icon from "./static/prepme.png";
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
 
 import { Link } from 'react-router-dom';
 import { Button } from "@material-ui/core"; 
@@ -35,6 +36,15 @@ class LeftSideBar extends React.Component {
             onEventsPage={ onEventsPage } 
             setOnEventsPage={ setOnEventsPage } 
           />
+        </div>
+        <div>
+          <p>Nearby Peers </p>
+          <LinkPreview
+              url="https://www.google.com/maps/@13.0226801,77.5702594,15z"
+              height="180px"
+              width="270px"
+              
+            />
         </div>
         
         <div id="logout-button">

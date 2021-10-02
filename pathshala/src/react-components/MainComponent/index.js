@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 import "./styles.css";
 import EventCard from "../EventCard/index";
 import { Button} from '@material-ui/core'; 
@@ -7,7 +7,7 @@ import Event from "../Event";
 import UserList from "../UserList";
 import UserProfile from "../UserProfile";
 import Recommended from '../RecommendedGroups/recommended'
-
+import StaticMap from "../StaticMap/staticmap"
 /* Component for the main center component */
 class MainComponent extends React.Component {
 
@@ -58,7 +58,12 @@ class MainComponent extends React.Component {
       event: event
     })
   }
-
+   showMap = () => {
+    if (window.location.pathname === "/") {
+      console.log("hello");
+      return <StaticMap />
+    }
+  }
   render() {
     const { user, filteredEvents, events, setEvents, users, isAdmin, onEventsPage, refreshEvents, adminChangePassword } = this.props;
 
@@ -97,20 +102,15 @@ class MainComponent extends React.Component {
     else {
     return (
       <div className="main-component-div">
-        <div className="section-header">
-          <div className="page-name">Home</div>
-          <div id="create-event">
-            <Button
-              onClick={() => {
-                this.createEvent();
-              }}
-              variant="outlined"
-              color="primary"
-              size="medium"
-              style={{ backgroundColor: "blue", color: "white" }}
-            >
-              Create Group
+        <div className="section-header" >
+          <div className="page-name">
+            Home
+          </div>
+          <div id='create-event' style={{display: 'flex',flexDirection: 'row'}}>
+            <Button onClick={ () => { this.createEvent()}} variant="outlined" color="primary" size="medium" style={{backgroundColor:"blue",color:"white"}}>
+              Create Event
             </Button>
+            
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "row" }}>
