@@ -1,7 +1,7 @@
 
 # Codefury 4.0
 
-PathShala is a virtual learning app in which students having like interests can connect with each other.   
+PathShala is a virtual learning app in which students having similar interests can connect with each other.   
 PathShala uses an AI based recommendation sysytem to give recommendation to the students for joining groups according to their interests,strength and Weaknesess.  
 
 
