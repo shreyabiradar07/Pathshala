@@ -128,21 +128,39 @@ class Event extends React.Component {
         }
 
         if (editing) {
-            lastButton = 
-                (
-                <div className="right_header">
-                    <div className="last_button">
-                        <Button  variant="outlined" color="primary" onClick={() => deleteEvent(viewEvents, event)}>
-                            Delete 
-                        </Button>
-                    </div>
-                     <div className="last_button">
-                        <Button  variant="outlined" color="primary" onClick={() => editEvent(this, events, userName, setEvents, viewEvents, event)}>
-                            Save
-                        </Button>
-                    </div>
+            lastButton = (
+              <div className="right_header">
+                <div className="last_button">
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={() => deleteEvent(viewEvents, event)}
+                    style={{ backgroundColor: "blue", color: "white" }}
+                  >
+                    Delete
+                  </Button>
                 </div>
-                )
+                <div className="last_button">
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={() =>
+                      editEvent(
+                        this,
+                        events,
+                        userName,
+                        setEvents,
+                        viewEvents,
+                        event
+                      )
+                    }
+                    style={{ backgroundColor: "blue", color: "white" }}
+                  >
+                    Save
+                  </Button>
+                </div>
+              </div>
+            );
         }
         else if (viewing) {
             if (userName !== this.state.username) {
@@ -159,11 +177,21 @@ class Event extends React.Component {
             }
         }
         else {
-            lastButton = (<div className="right_header" className="last_button">
-            <Button fullWidth variant="outlined" color="primary" onClick={() => addEvent(this, events, userName, setEvents, viewEvents)}>
-                Create Event
-            </Button>
-        </div>)
+            lastButton = (
+              <div className="right_header" className="last_button">
+                <Button
+                  fullWidth
+                  variant="outlined"
+                  color="primary"
+                  onClick={() =>
+                    addEvent(this, events, userName, setEvents, viewEvents)
+                  }
+                  style={{ backgroundColor: "blue", color: "white" }}
+                >
+                  Create Group
+                </Button>
+              </div>
+            );
         }
         return (
             <div className="event-div">
@@ -176,7 +204,7 @@ class Event extends React.Component {
                             </IconButton>
                         </div>
                         <div className="page-name">
-                            Event
+                            Group
                         </div>
                     </div>
                 {lastButton}  

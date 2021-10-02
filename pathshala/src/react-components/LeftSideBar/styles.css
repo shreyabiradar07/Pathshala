@@ -1,5 +1,5 @@
-:root {
-  --app-logo-size: 100px;
+/* :root {
+  --app-logo-size: 50px;
 }
 
 #sidebar-div {
@@ -15,8 +15,8 @@
 
 #app-info {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-end;
   
 }
 
@@ -46,4 +46,47 @@
  font-family: Raleway;
  color: #fff;
  
+} */
+:root {
+  --app-logo-size: 50px;
+}
+
+#sidebar-div {
+  width: 300px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 1px solid #A5A5A5;
+  height: calc(100% - 48px);
+}
+
+#app-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+#app-logo {
+  width: var(--app-logo-size);
+  overflow: hidden;
+  width: 100px;
+}
+
+#app-logo img {
+  width: var(--app-logo-size);
+}
+
+#app-name {
+  font-family: Raleway-SemiBold;
+  font-size: 36px;
+  margin-left: 12px;
+}
+
+#username {
+  margin-left: 12px;
+  font-family: Raleway-SemiBold;
+  font-size: 24px;
+  color: Blue;
 }

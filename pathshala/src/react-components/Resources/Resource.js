@@ -29,16 +29,9 @@ export default function Resource() {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Resource 2</h2>
-            <LinkPreview
-              url="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-              width="400px"
-            />
+            <LinkPreview url="https://youtu.be/Nzxh9YjRAFw" width="400px" />
 
-            <button
-              className="close-modal"
-              onClick={toggleModal}
-              
-            >
+            <button className="close-modal" onClick={toggleModal}>
               CLOSE
             </button>
           </div>

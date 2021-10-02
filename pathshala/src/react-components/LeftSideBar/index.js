@@ -2,7 +2,7 @@ import React from "react";
 
 import "./styles.css";
 import "../../App.css";
-import icon from "./static/prepme.png";
+import icon from "./static/logo.png";
 
 import { Link } from 'react-router-dom';
 import { Button } from "@material-ui/core"; 
@@ -21,9 +21,8 @@ class LeftSideBar extends React.Component {
 
         <div>
           <div id="app-info">
-            <div className="logo">
-              {/*<img src={ icon } />*/}
-              <h3>PathShala</h3>
+            <div className="app-logo">
+              <img src={ icon } style={{ width:"250px"}}/>
             </div>
             <div>
               <div id="username">@{ username }</div>

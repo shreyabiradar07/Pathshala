@@ -77,7 +77,7 @@ class EventCard extends React.Component {
               <div className="event-subject">{event.subject}</div>
             </div>
           </div>
-          <div className="username" >{"@" + event.username}</div>
+          <div className="username">{"@" + event.username}</div>
         </div>
         <div className="event_description">{event.description}</div>
         <div className="actions">
@@ -150,7 +150,12 @@ class EventCard extends React.Component {
 
         {/* Dialog to allow user to give organizer rating */}
         <Dialog open={this.state.showDialog}>
-          <DialogTitle id="form-dialog-title">Rate Organizer</DialogTitle>
+          <DialogTitle
+            id="form-dialog-title"
+            style={{ backgroundColor: "#9784FF", color: "black" }}
+          >
+            Rate Organizer
+          </DialogTitle>
           <DialogContent>
             <DialogContentText>
               Enter the rating for organizer @{event.username}.
