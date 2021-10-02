@@ -384,7 +384,7 @@ class Event extends React.Component {
                 <Button disableElevation variant="contained" color="secondary" onClick={ this.openDialog }>
                             View Members
                 </Button>
-               
+                
                 <Dialog open={ this.state.showDialog }>
                     <DialogTitle>Joined Members</DialogTitle>
                     <DialogContent>
@@ -420,8 +420,12 @@ class Event extends React.Component {
                         Ok
                         </Button>
                         <Button disableElevation variant="contained" color="primary" >
-                        <Link to={{ pathname: `http://localhost:8000/chat.html?username=${this.props.userName}&room=1` }} target="_blank" >Join Chat with fellow members</Link>
+                        <Link to={{ pathname: `https://pathshala-chat-app.herokuapp.com//chat.html?username=${this.props.userName}&room=1` }} target="_blank" >Join Chat </Link>
                          </Button>
+                         <Button styles = {{margin: "5px"}} disableElevation variant="contained" color="primary" >
+                        <Link to={{ pathname: "https://video-chat-5cabf.web.app/" }} target="_blank" >Join Stream</Link>
+                       </Button>
+               
                          
                        
                     </DialogActions>

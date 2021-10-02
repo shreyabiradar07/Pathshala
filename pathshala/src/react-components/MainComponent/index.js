@@ -108,7 +108,7 @@ class MainComponent extends React.Component {
           </div>
           <div id='create-event' style={{display: 'flex',flexDirection: 'row'}}>
             <Button onClick={ () => { this.createEvent()}} variant="outlined" color="primary" size="medium" style={{backgroundColor:"blue",color:"white"}}>
-              Create Event
+              Create Group
             </Button>
             
           </div>
