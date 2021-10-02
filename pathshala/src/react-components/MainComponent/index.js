@@ -6,7 +6,7 @@ import { Button} from '@material-ui/core';
 import Event from "../Event";
 import UserList from "../UserList";
 import UserProfile from "../UserProfile";
-
+import Recommended from '../RecommendedGroups/recommended'
 
 /* Component for the main center component */
 class MainComponent extends React.Component {
@@ -19,6 +19,7 @@ class MainComponent extends React.Component {
     viewing: false,
     creating: false,
     editing: false,
+    recommended : false,
     event: {}
   };
 
@@ -106,10 +107,15 @@ class MainComponent extends React.Component {
             </Button>
           </div>
         </div>
+        <div style={{display :'flex', flexDirection: 'row'}}>
         <div className="upcoming-events">
-        Upcoming Events
+        <button type="button" onClick={() => { this.setState({recommended:false})}}>All Groups </button>
         </div>
-        <div className="event-list">
+        <div className="upcoming-events">
+        <button type="button" onClick={() => { this.setState({recommended:true})}}>Recommended </button>
+        </div>
+        </div>
+        {this.state.recommended ===  false ?  <div className="event-list">
           {filteredEvents.length === 0 ? (
             <div className="empty-list-text">No events match the filter(s).</div>
           ) : (
@@ -123,7 +129,9 @@ class MainComponent extends React.Component {
               refreshEvents={refreshEvents.bind(this, this)}/>
             ))
           )}
-        </div>
+        </div>:
+        <Recommended/>
+        }
       </div>
 
     );}

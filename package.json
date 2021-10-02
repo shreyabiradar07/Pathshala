@@ -7,18 +7,20 @@
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.22.0",
     "connect-multiparty": "^2.2.0",
+    "content-based-recommender": "^1.5.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.25",
+    "nodemon": "^2.0.13",
     "validator": "^13.1.1"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "server": "nodemon index.js --ignore client"
+
+    "server": "nodemon index.js --ignore client",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",

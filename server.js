@@ -4,7 +4,11 @@ log('Express server');
 
 const express = require('express');
 const app = express();
-
+const ContentBasedRecommender = require('content-based-recommender')
+const recommender = new ContentBasedRecommender({
+    minScore: 0.1,
+    maxSimilarDocuments: 100
+  });
 // mongoose and mongo connection
 const { mongoose } = require('./db/mongoose');
 mongoose.set('useFindAndModify', false); // for some deprecation issues
@@ -110,7 +114,15 @@ app.get("/users/check-session", (req, res) => {
         res.status(401).send();
     }
 });
-
+app.get("/users/curruser", (req, res) => {
+  User.findById(req.session.user).then(user => {
+      res.json({currentUser: user});
+  }).catch((error)=>{
+      console.log('====================================');
+      console.log(error);
+      console.log('====================================');
+  })
+});
 app.get('/users', (req, res) => {
     User.find().then((users) => {
         const filteredUsers = []
@@ -126,9 +138,72 @@ app.get('/users', (req, res) => {
         res.status(500).send(error) // server error
     })
 });
-
-app.get('/events', authenticate, (req, res) => {
+app.get('/recommendedGroups', (req, res)=>{
+    var docs=[];
+    console.log(req.headers);
+    var strengths = JSON.parse(req.headers.weaknesses);
+    
     Event.find().then((events) => {
+        const filtered=[];
+        const recommendedGroups=[]
+
+        strengths.map(strength =>{
+             events.map(event => {
+                 console.log(event);
+                 console.log(strength);
+                 if(event.description.toLowerCase().includes(strength.toLowerCase())) 
+                 {   console.log(event._id);
+                     recommendedGroups.push(event)
+                     filtered.push(event._id)
+                     
+                    }
+               })
+        })
+       
+        events.map(event=>{
+            docs.push({ 
+                "id":event._id,
+                "content":event.description
+            })
+        })
+        console.log(docs)
+        recommender.train(docs);
+        console.log(filtered);
+        const similarDocuments = recommender.getSimilarDocuments(filtered[0], 0, 1);
+        const ids=[];
+        console.log(similarDocuments);
+        similarDocuments.map(doc=>{
+            ids.push(doc.id)
+        })
+        
+      
+        ids.map(id =>{
+            events.map(event => {
+             
+                if(event._id === id&& !recommendedGroups.includes(event)) 
+                {  
+                    recommendedGroups.push(event)}
+              })
+       })
+        res.json({recommendedGroups}) // can wrap in object if want to add more properties
+    }, (error) => {
+        res.status(500).send(error) // server error
+    })
+})
+app.get('/events', authenticate, (req, res) => {
+    var docs=[];
+    Event.find().then((events) => {
+        
+        events.map(event=>{
+            docs.push({ 
+                "id":event._id,
+                "content":event.description
+            })
+        })
+        console.log(docs)
+        recommender.train(docs);
+        const similarDocuments = recommender.getSimilarDocuments("615825bf8be4cf42e49a3db2", 0, 10);
+        console.log(similarDocuments);
         res.send(events) // can wrap in object if want to add more properties
     }, (error) => {
         res.status(500).send(error) // server error
@@ -291,7 +366,8 @@ app.post("/users", (req, res) => {
     // Create a new user
     const user = new User({
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        weaknesses: req.body.weaknesses
     });
 
     // Save the user
