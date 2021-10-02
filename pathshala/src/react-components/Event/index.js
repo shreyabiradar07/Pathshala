@@ -1,8 +1,4 @@
 import React from "react";
-import {
-   Link
-  } from "react-router-dom";
-  
 
 import "./styles.css";
 import {Input, ListItemText, TextField, Button, Dialog, DialogContent, DialogTitle, DialogContentText, DialogActions} from '@material-ui/core';
@@ -128,39 +124,21 @@ class Event extends React.Component {
         }
 
         if (editing) {
-            lastButton = (
-              <div className="right_header">
-                <div className="last_button">
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    onClick={() => deleteEvent(viewEvents, event)}
-                    style={{ backgroundColor: "blue", color: "white" }}
-                  >
-                    Delete
-                  </Button>
+            lastButton = 
+                (
+                <div className="right_header">
+                    <div className="last_button">
+                        <Button  variant="outlined" color="primary" onClick={() => deleteEvent(viewEvents, event)}>
+                            Delete 
+                        </Button>
+                    </div>
+                     <div className="last_button">
+                        <Button  variant="outlined" color="primary" onClick={() => editEvent(this, events, userName, setEvents, viewEvents, event)}>
+                            Save
+                        </Button>
+                    </div>
                 </div>
-                <div className="last_button">
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    onClick={() =>
-                      editEvent(
-                        this,
-                        events,
-                        userName,
-                        setEvents,
-                        viewEvents,
-                        event
-                      )
-                    }
-                    style={{ backgroundColor: "blue", color: "white" }}
-                  >
-                    Save
-                  </Button>
-                </div>
-              </div>
-            );
+                )
         }
         else if (viewing) {
             if (userName !== this.state.username) {
@@ -177,21 +155,11 @@ class Event extends React.Component {
             }
         }
         else {
-            lastButton = (
-              <div className="right_header" className="last_button">
-                <Button
-                  fullWidth
-                  variant="outlined"
-                  color="primary"
-                  onClick={() =>
-                    addEvent(this, events, userName, setEvents, viewEvents)
-                  }
-                  style={{ backgroundColor: "blue", color: "white" }}
-                >
-                  Create Group
-                </Button>
-              </div>
-            );
+            lastButton = (<div className="right_header" className="last_button">
+            <Button fullWidth variant="outlined" color="primary" onClick={() => addEvent(this, events, userName, setEvents, viewEvents)}>
+                Create Event
+            </Button>
+        </div>)
         }
         return (
             <div className="event-div">
@@ -204,7 +172,7 @@ class Event extends React.Component {
                             </IconButton>
                         </div>
                         <div className="page-name">
-                            Group
+                            Event
                         </div>
                     </div>
                 {lastButton}  
@@ -384,7 +352,6 @@ class Event extends React.Component {
                 <Button disableElevation variant="contained" color="secondary" onClick={ this.openDialog }>
                             View Members
                 </Button>
-                
                 <Dialog open={ this.state.showDialog }>
                     <DialogTitle>Joined Members</DialogTitle>
                     <DialogContent>
@@ -419,15 +386,6 @@ class Event extends React.Component {
                         <Button onClick={ this.closeDialog } color="primary" autoFocus>
                         Ok
                         </Button>
-                        <Button disableElevation variant="contained" color="primary" >
-                        <Link to={{ pathname: `https://pathshala-chat-app.herokuapp.com//chat.html?username=${this.props.userName}&room=1` }} target="_blank" >Join Chat </Link>
-                         </Button>
-                         <Button styles = {{margin: "5px"}} disableElevation variant="contained" color="primary" >
-                        <Link to={{ pathname: "https://video-chat-5cabf.web.app/" }} target="_blank" >Join Stream</Link>
-                       </Button>
-               
-                         
-                       
                     </DialogActions>
                 </Dialog>
                 

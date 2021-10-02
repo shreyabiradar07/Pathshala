@@ -143,7 +143,7 @@ class MainComponent extends React.Component {
           <div className="event-list">
             {filteredEvents.length === 0 ? (
               <div className="empty-list-text">
-                No events match the filter(s).
+                No groups match the filter(s).
               </div>
             ) : (
               filteredEvents.map((event) => (
