@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom"
 import "./styles.css";
 import {Input, ListItemText, TextField, Button, Dialog, DialogContent, DialogTitle, DialogContentText, DialogActions} from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -352,6 +352,9 @@ class Event extends React.Component {
                 <Button disableElevation variant="contained" color="secondary" onClick={ this.openDialog }>
                             View Members
                 </Button>
+                        <Button styles = {{ margin: "5px"}}  color="secondary" autoFocus>
+                        <Link to = { {pathName : "#"}} >Join Stream</Link>
+                        </Button>
                 <Dialog open={ this.state.showDialog }>
                     <DialogTitle>Joined Members</DialogTitle>
                     <DialogContent>
@@ -386,6 +389,18 @@ class Event extends React.Component {
                         <Button onClick={ this.closeDialog } color="primary" autoFocus>
                         Ok
                         </Button>
+                        <Button styles = {{margin:"5px"}} color="primary" autoFocus>
+                        <Link target = "_blank"
+                        to={{
+                          pathname: `https://pathshala-chat-app.herokuapp.com/chat.html?username=${this.state.username}&room=1`,
+                            }}
+                             >Join Chats</Link>
+                        </Button>
+                        <Button styles = {{ margin: "5px"}}  color="secondary" autoFocus>
+                        <Link to = { {pathName : "https://video-chat-5cabf.web.app/" ,}} target = "_blank" >Join Stream</Link>
+                        </Button>
+                       
+
                     </DialogActions>
                 </Dialog>
                 
