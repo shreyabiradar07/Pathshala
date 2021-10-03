@@ -63,7 +63,7 @@ export async function send(title = "Push Sent", message = "Hello push") {
 }
 
 function sendSubscription(subscription, title, message) {
-  return fetch("http://localhost:5000/subscribe", {
+  return fetch("http://localhost:8080/subscribe", {
     method: "POST",
     body: JSON.stringify({ subscription, title, message }),
     headers: {
