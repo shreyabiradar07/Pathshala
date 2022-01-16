@@ -6,7 +6,7 @@ PathShala uses an AI based recommendation system to give recommendation to the s
 
 
 This app is developed under 24 hours for a submission in [CodeFury 4.0](http://www.ieeeuvce.in/events/codefury-4-0/)     
-
+PS : Winner 🏆 at Codefury 4.0 under Web dev theme
 
 ## Tech Stack
 
